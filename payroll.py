@@ -30,7 +30,7 @@ def User_Input_string(message):
     else:
       return userInput 
 
-while len(Employee_Info) < 2: 
+while len(Employee_Info) < 11: 
   Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: '))
   Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
   Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked employee this week #{employee_number}: '))
