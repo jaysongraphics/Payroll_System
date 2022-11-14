@@ -6,7 +6,29 @@ from emoji import emojize
 # State_Tax =  6%  
 # FICA(Federal Insurance Contributions Act) =  3% 
 
-print(emojize(':smiling_face_with_sunglasses: Welcome to the payroll system! :smiling_face_with_sunglasses:'))
+print(emojize('          :smiling_face_with_sunglasses: Welcome to the payroll system! :smiling_face_with_sunglasses:'))
+print(emojize('''
+              ,---------------------------,
+              |  /---------------------\  |
+              | |                       | |
+              | |     Edward            | |
+              | |         Arias         | |
+              | |                       | |
+              | |                       | |
+              |  \_____________________/  |
+              |___________________________|
+            ,---\_____     []     _______/------,
+          /         /______________\           /|
+        /___________________________________ /  | ___
+        |                                   |   |    )
+        |  _ _ _                 [-------]  |   |   (
+        |  o o o                 [-------]  |  /    _)_
+        |__________________________________ |/     /  /
+    /-------------------------------------/|      ( )/
+  /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ /
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ /
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'''))
 
 Employee_Info = []
 employee_number = 1
@@ -31,7 +53,7 @@ def User_Input_string(message):
       return userInput 
 
 while len(Employee_Info) < 11: 
-    Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: '))
+    Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: ')).lower()
     Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
     Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked this week employee #{employee_number}: '))
     Overtime = Pay_Rate * 1.5 
