@@ -30,35 +30,35 @@ def User_Input_string(message):
     else:
       return userInput 
 
-while len(Employee_Info) < 1: 
-  Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: '))
-  Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
-  Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked this week employee #{employee_number}: '))
-  Overtime = Pay_Rate * 1.5 
+while len(Employee_Info) < 2: 
+    Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: '))
+    Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
+    Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked this week employee #{employee_number}: '))
+    Overtime = Pay_Rate * 1.5 
   
-  if (Hours_Worked >= 40 and Hours_Worked <= 168):
+    if (Hours_Worked >= 40 and Hours_Worked <= 168):
       Regular_Pay = Hours_Worked * Pay_Rate
       OT_Pay = Regular_Pay + Overtime 
       Gross_Pay = Regular_Pay + OT_Pay
-  elif (Hours_Worked <= 0 or Hours_Worked >= 169):
+    elif (Hours_Worked <= 0 or Hours_Worked >= 169):
       print(emojize(':stop_sign: Please enter a number between 1 and 168. Please start again. :stop_sign:'))
       continue
-  else:   
+    else:   
       Regular_Pay = Hours_Worked * Pay_Rate
       Gross_Pay = Regular_Pay 
       OT_Pay = 0
-      
-  Fed_Tax = round(0.1 * Gross_Pay, 2)
-  State_Tax = round(0.06 * Gross_Pay, 2)
-  FICA = round(0.03 * Gross_Pay, 2)
-  Taxes = Fed_Tax + State_Tax + FICA
-  Net_Pay = round(Gross_Pay - Taxes, 2)
-            
-  Employee_list = Employee_Name, Hours_Worked, Pay_Rate, Regular_Pay, OT_Pay, Gross_Pay, Fed_Tax, State_Tax, FICA, Net_Pay
-  Employee_Info.append(Employee_list)
-      
-  employee_number = employee_number + 1
+        
+    Fed_Tax = round(0.1 * Gross_Pay, 2)
+    State_Tax = round(0.06 * Gross_Pay, 2)
+    FICA = round(0.03 * Gross_Pay, 2)
+    Taxes = Fed_Tax + State_Tax + FICA
+    Net_Pay = round(Gross_Pay - Taxes, 2)
+                  
+    Employee_list = Employee_Name, Hours_Worked, Pay_Rate, Regular_Pay, OT_Pay, Gross_Pay, Fed_Tax, State_Tax, FICA, Net_Pay
+    Employee_Info.append(Employee_list)
+        
+    employee_number = employee_number + 1
 
-  headers_table = 'Employee Name', 'Hours Worked', '$ Pay_Rate', '$ Regular Pay', '$ OT Pay', '$ Gross Pay', '$ Fed Tax', '$ State Tax', '$ FICA', '$ Net Pay'    
-  print(emojize(':money_bag: Please see below this week payroll! :money_bag:'))
-  print(tabulate(Employee_Info, headers=headers_table, tablefmt='fancy_grid'))
+headers_table = 'Employee Name', 'Hours Worked', '$ Pay_Rate', '$ Regular Pay', '$ OT Pay', '$ Gross Pay', '$ Fed Tax', '$ State Tax', '$ FICA', '$ Net Pay'    
+print(emojize(':money_bag: Please see below this week payroll! :money_bag:'))
+print(tabulate(Employee_Info, headers=headers_table, tablefmt='fancy_grid'))
