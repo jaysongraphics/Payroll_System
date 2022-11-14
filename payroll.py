@@ -30,19 +30,19 @@ def User_Input_string(message):
     else:
       return userInput 
 
-while len(Employee_Info) < 11: 
+while len(Employee_Info) < 1: 
   Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: '))
   Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
-  Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked employee this week #{employee_number}: '))
+  Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked this week employee #{employee_number}: '))
   Overtime = Pay_Rate * 1.5 
   
-  if (Hours_Worked > 40):
+  if (Hours_Worked > 40 and Hours_Worked < 99):
     Regular_Pay = Hours_Worked * Pay_Rate
     OT_Pay = Regular_Pay + Overtime 
     Gross_Pay = Regular_Pay + OT_Pay
   elif(Hours_Worked <= 0 or Hours_Worked >= 100):
     print('Please enter a number between 1 and 100')
-    break
+    continue
   else:   
       Regular_Pay = Hours_Worked * Pay_Rate
       Gross_Pay = Regular_Pay 
