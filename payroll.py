@@ -41,7 +41,7 @@ while len(Employee_Info) < 1:
     OT_Pay = Regular_Pay + Overtime 
     Gross_Pay = Regular_Pay + OT_Pay
   elif(Hours_Worked <= 0 or Hours_Worked >= 100):
-    print('Please enter a number between 1 and 100')
+    print(emojize(':stop_sign: Please enter a number between 1 and 100, start again. :stop_sign:'))
     continue
   else:   
       Regular_Pay = Hours_Worked * Pay_Rate
