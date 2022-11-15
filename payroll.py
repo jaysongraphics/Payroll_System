@@ -52,19 +52,22 @@ def User_Input_string(message):
     else:
       return userInput 
 
-while len(Employee_Info) < 11: 
+while len(Employee_Info) < 2: 
     Employee_Name = User_Input_string(emojize(f':radio_button: Please enter your name employee #{employee_number}: ')).lower()
     Pay_Rate = User_Input(emojize(f':radio_button: Please enter your pay rate/hr employee #{employee_number}: '))
     Hours_Worked = User_Input(emojize(f':radio_button: Please enter how many hours you worked this week employee #{employee_number}: '))
     Overtime = Pay_Rate * 1.5 
-  
-    if (Hours_Worked >= 40 and Hours_Worked <= 168):
+    
+    if (Hours_Worked >= 40 and Hours_Worked <= 65):
       Regular_Pay = Hours_Worked * Pay_Rate
       OT_Pay = Regular_Pay + Overtime 
-      Gross_Pay = Regular_Pay + OT_Pay
-    elif (Hours_Worked <= 0 or Hours_Worked >= 169):
-      print(emojize(':stop_sign: Please enter a number between 1 and 168. Please start again. :stop_sign:'))
-      continue
+      Gross_Pay = Regular_Pay + OT_Pay 
+    elif (Hours_Worked <= 0 or Hours_Worked >= 65):
+        print(emojize(':stop_sign: Please enter a number between 1 and 65. Please start again. :stop_sign:'))
+        continue
+    elif (Pay_Rate <= 15 or Pay_Rate >= 50):
+        print(emojize(':stop_sign: Minimum wage $15 or Max wage $50 was not met, try again. :stop_sign:'))
+        continue      
     else:   
       Regular_Pay = Hours_Worked * Pay_Rate
       Gross_Pay = Regular_Pay 
